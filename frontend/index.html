@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUILDATHON '26 | College Registration Portal</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass-panel">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-neon">BUILD</span>ATHON <span class="logo-version">'26</span>
+      </a>
+      
+      <!-- Desktop Menu -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#prizes">Prizes</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="admin.html" class="nav-admin-link">Admin Portal</a>
+        <a href="login.html" class="btn-cyber btn-cyber-purple" id="nav-auth-btn">Register / Login</a>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="nav-hamburger" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" id="mobile-menu-overlay">
+    <ul class="mobile-links">
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#timeline" class="mob-link">Timeline</a></li>
+      <li><a href="#themes" class="mob-link">Themes</a></li>
+      <li><a href="#prizes" class="mob-link">Prizes</a></li>
+      <li><a href="#faq" class="mob-link">FAQ</a></li>
+      <li><a href="admin.html" class="mob-link">Admin Portal</a></li>
+      <li><a href="login.html" class="btn-cyber btn-cyber-purple mob-link-btn" id="mob-auth-btn">Register / Login</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-container">
+      <h1 class="hero-title">
+        CODE. BUILD. <span class="text-neon-cyan">CONQUER.</span>
+      </h1>
+      <p class="hero-tagline">
+        The ultimate college hackathon. Unleash your creativity, collaborate in teams of 2, and build production-ready software solutions in 36 hours.
+      </p>
+      <div class="hero-buttons">
+        <a href="login.html" class="btn-cyber">Register Now</a>
+        <a href="#about" class="btn-cyber btn-cyber-purple">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-container">
+      <h2 class="section-title">ABOUT THE <span class="text-neon-purple">EVENT</span></h2>
+      <div class="about-grid">
+        <div class="about-card glass-panel">
+          <h3>36 Hours of Hacking</h3>
+          <p>Bring your ideas to life under tight timelines. Buildathon '26 is an intense 36-hour college-wide hackathon bringing developers, designers, and managers together to build solutions for real-world problems.</p>
+        </div>
+        <div class="about-card glass-panel">
+          <h3>Teams of 2</h3>
+          <p>Collaborate closely. Register either as an Individual or as a Team of up to 2 members. Share codes, leverage strengths, and deliver a clean working application prototype.</p>
+        </div>
+        <div class="about-card glass-panel">
+          <h3>Secure Entry Passes</h3>
+          <p>Submit your profiles, portfolios, and GitHub links. Once approved by the administrator panel, download your entry passes containing unique attendance scanning QR codes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="section section-alt">
+    <div class="section-container">
+      <h2 class="section-title">EVENT <span class="text-neon-cyan">TIMELINE</span></h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item left">
+          <div class="timeline-content glass-panel">
+            <span class="timeline-date">Phase 1</span>
+            <h3>Registrations Open</h3>
+            <p>Sign in using your authorized college email address, update your profiles with GitHub/LinkedIn URLs, and create/join teams.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content glass-panel">
+            <span class="timeline-date">Phase 2</span>
+            <h3>Admin Profile Verification</h3>
+            <p>Admin panel reviews social profiles, portfolios, and register numbers. Selected applicants receive confirmation entry passes.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-content glass-panel">
+            <span class="timeline-date">Phase 3</span>
+            <h3>QR Pass Download</h3>
+            <p>Approved participants download their entry passes containing encrypted attendance check-in tokens.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content glass-panel">
+            <span class="timeline-date">Phase 4</span>
+            <h3>Hack Day & Attendance Check-in</h3>
+            <p>Scan your QR Pass at the venue entrance. Admin registers check-ins cleanly. Duplicate scans are blocked automatically.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Themes Section -->
+  <section id="themes" class="section">
+    <div class="section-container">
+      <h2 class="section-title">HACKATHON <span class="text-neon-purple">TRACKS</span></h2>
+      <div class="themes-grid">
+        <div class="theme-card glass-panel">
+          <div class="theme-icon">🤖</div>
+          <h3>Generative AI & Automation</h3>
+          <p>Build applications leveraging advanced LLMs, neural networks, or intelligent automation pipelines to solve accessibility constraints.</p>
+        </div>
+        <div class="theme-card glass-panel">
+          <div class="theme-icon">⛓️</div>
+          <h3>Web3 & Decentralization</h3>
+          <p>Innovate on decentralized networks, smart contract workflows, secure custody models, and cryptography structures.</p>
+        </div>
+        <div class="theme-card glass-panel">
+          <div class="theme-icon">🛡️</div>
+          <h3>Cyber Security & Shield</h3>
+          <p>Create defenses, vulnerability scanners, cryptography tunnels, or token-based session managers guarding application interfaces.</p>
+        </div>
+        <div class="theme-card glass-panel">
+          <div class="theme-icon">🏥</div>
+          <h3>Health & Green Tech</h3>
+          <p>Develop software monitoring carbon output, patient diagnosis helpers, or decentralized environmental dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prizes Section -->
+  <section id="prizes" class="section section-alt">
+    <div class="section-container">
+      <h2 class="section-title">PRIZES & <span class="text-neon-cyan">REWARDS</span></h2>
+      <div class="prizes-grid">
+        <div class="prize-card glass-panel silver">
+          <div class="prize-medal">🥈</div>
+          <h3>Second Place</h3>
+          <span class="prize-amt">$3,000</span>
+          <p>Premium Swags + Certificates + Cloud hosting credits.</p>
+        </div>
+        <div class="prize-card glass-panel gold">
+          <div class="prize-medal">🥇</div>
+          <h3>Grand Champion</h3>
+          <span class="prize-amt">$5,000</span>
+          <p>Elite Winner Cup + Premium hardware gear + Seed mentorship support.</p>
+        </div>
+        <div class="prize-card glass-panel bronze">
+          <div class="prize-medal">🥉</div>
+          <h3>Third Place</h3>
+          <span class="prize-amt">$1,500</span>
+          <p>Gear bags + Certificates + Domain subscription perks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <div class="section-container">
+      <h2 class="section-title">FREQUENTLY ASKED <span class="text-neon-purple">QUESTIONS</span></h2>
+      <div class="faq-container">
+        <div class="faq-item glass-panel">
+          <div class="faq-question">
+            <h4>Who can participate in Buildathon?</h4>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Participation is restricted to students registered in our college who possess a valid college email address ending with the configured domain. Off-campus domain email addresses are rejected automatically.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <div class="faq-question">
+            <h4>What is the maximum team capacity?</h4>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Teams can have a maximum of 2 members. You can also participate as an individual. Individual registrations do not require joining a team.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <div class="faq-question">
+            <h4>How does the check-in scanner work?</h4>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Once approved, your entry pass will show a QR Code containing a unique UUID. The venue admin will scan this code on hack day to log your attendance. Duplicate scans will trigger warnings and prevent double registration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2026 BUILDATHON. All Rights Reserved. Designed for College Innovators.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { isAuthenticated } from './js/auth.js';
+    
+    // Setup login/dashboard buttons dynamically based on authentication
+    document.addEventListener('DOMContentLoaded', () => {
+      const authBtn = document.getElementById('nav-auth-btn');
+      const mobAuthBtn = document.getElementById('mob-auth-btn');
+      
+      if (isAuthenticated()) {
+        const dashboardUrl = 'dashboard.html';
+        if (authBtn) {
+          authBtn.innerText = 'Go to Dashboard';
+          authBtn.href = dashboardUrl;
+        }
+        if (mobAuthBtn) {
+          mobAuthBtn.innerText = 'Go to Dashboard';
+          mobAuthBtn.href = dashboardUrl;
+        }
+      }
+
+      // Hamburger mobile navigation toggle
+      const toggle = document.getElementById('nav-toggle');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (toggle && overlay) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+          overlay.classList.toggle('active');
+        });
+      }
+
+      // Close mobile menu when clicking a link
+      const mobLinks = document.querySelectorAll('.mob-link');
+      mobLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+      });
+
+      // FAQ accordion toggle logic
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('open');
+          const toggleText = question.querySelector('.faq-toggle');
+          if (item.classList.contains('open')) {
+            toggleText.innerText = '-';
+          } else {
+            toggleText.innerText = '+';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+/* Student Dashboard Page Styles */
+
+.dashboard-wrapper {
+  padding: 110px 24px 80px 24px;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header Banner */
+.db-header {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.db-welcome h2 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.db-welcome p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.db-meta-badge {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid var(--color-purple);
+  border-radius: 20px;
+  color: var(--color-purple);
+  padding: 6px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px var(--color-purple-glow);
+}
+
+/* Grid Layout */
+.db-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+.db-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.db-card {
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.db-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--color-purple);
+  padding-left: 12px;
+}
+
+/* Status Badges */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-header h3 {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+.status-badge.status-pending {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+  box-shadow: 0 0 10px var(--color-amber-glow);
+}
+
+.status-badge.status-approved {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--color-green);
+  color: var(--color-green);
+  box-shadow: 0 0 10px var(--color-green-glow);
+}
+
+.status-badge.status-rejected {
+  background: rgba(255, 0, 127, 0.1);
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+  box-shadow: 0 0 10px var(--color-pink-glow);
+}
+
+.status-note-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* Milestones Tracker Progress Bar */
+.milestones-tracker {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.milestones-tracker h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.progress-track-wrapper {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 40px 20px;
+}
+
+.progress-bar-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0; /* Updated in JS */
+  background: linear-gradient(to right, var(--color-purple), var(--color-cyan));
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px var(--color-cyan);
+}
+
+.progress-nodes {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 32px;
+}
+
+.node-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.node-label {
+  position: absolute;
+  bottom: -32px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.node.active .node-icon {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 10px var(--color-cyan-glow);
+  background: var(--bg-primary);
+}
+
+.node.active .node-label {
+  color: var(--text-main);
+}
+
+.node.complete .node-icon {
+  border-color: var(--color-purple);
+  box-shadow: 0 0 10px var(--color-purple-glow);
+  background: var(--bg-primary);
+}
+
+.node.complete .node-label {
+  color: var(--color-purple);
+}
+
+/* Get Pass Button Panel */
+.pass-access-box {
+  display: none; /* Toggled in JS */
+  padding: 24px;
+  background: rgba(16, 185, 129, 0.02);
+  border: 1px dashed rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pass-access-box.active {
+  display: flex;
+}
+
+.pass-access-box p {
+  font-size: 0.95rem;
+  max-width: 480px;
+}
+
+/* Team Table styles */
+.team-meta-info {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-glass);
+}
+
+.team-meta-info p {
+  font-size: 0.9rem;
+}
+
+.members-table-container {
+  overflow-x: auto;
+}
+
+.db-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.db-table th, .db-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.db-table th {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.db-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.text-center {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Sidebar Profile Card details */
+.profile-sidebar-card {
+  text-align: center;
+}
+
+.profile-avatar {
+  font-size: 4rem;
+  margin-bottom: 12px;
+}
+
+.profile-sidebar-card h3 {
+  font-size: 1.4rem;
+  border: none;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.profile-meta-email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-glass);
+  margin: 20px 0;
+}
+
+.profile-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.profile-detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.profile-detail-item .label {
+  color: var(--text-muted);
+}
+
+.profile-detail-item .value {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.profile-social-links {
+  text-align: left;
+}
+
+.profile-social-links h4 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.social-btn.github:hover { border-color: #f3f4f6; color: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+.social-btn.linkedin:hover { border-color: #0077b5; color: #0077b5; box-shadow: 0 0 10px rgba(0,119,181,0.15); }
+.social-btn.portfolio:hover { border-color: var(--color-cyan); color: var(--color-cyan); box-shadow: 0 0 10px var(--color-cyan-glow); }

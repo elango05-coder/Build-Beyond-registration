@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Scan Console | BUILDATHON '26</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/attendance.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass-panel">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-neon">BUILD</span>ATHON <span class="logo-version">'26</span>
+      </a>
+      <div class="nav-actions">
+        <a href="admin.html" class="nav-admin-link">&larr; Return to Admin Panel</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="scanner-wrapper">
+    <div class="scanner-container">
+      
+      <header class="scanner-header glass-panel">
+        <h2>🎯 Attendance Check-in scan Console</h2>
+        <p>Scan participant QR codes to verify credentials and log hack day attendance.</p>
+      </header>
+
+      <!-- Side-by-side scanning interface -->
+      <div class="scanner-grid">
+        
+        <!-- Left: QR Simulator Scanner Box -->
+        <div class="scanner-card glass-panel flex-center">
+          <h3>📷 Live Camera Scan Simulation</h3>
+          <p class="scan-instructions">Align the participant pass QR Code within the targeting brackets.</p>
+          
+          <div class="scanner-viewfinder">
+            <!-- Neon bracket overlays -->
+            <div class="bracket top-left"></div>
+            <div class="bracket top-right"></div>
+            <div class="bracket bottom-left"></div>
+            <div class="bracket bottom-right"></div>
+            
+            <!-- Red animated scan line -->
+            <div class="scan-line"></div>
+            
+            <div class="scanner-mock-content">
+              <span>SCANNER ACTIVE</span>
+            </div>
+          </div>
+
+          <!-- Input scanner bypass simulation -->
+          <div class="scan-input-box">
+            <label for="qr-input">Enter Pass Token ID / Scanned Code</label>
+            <div class="scan-input-row">
+              <input type="text" id="qr-input" placeholder="Paste UUID attendanceQRToken here..." class="form-control">
+              <button type="button" id="btn-simulate-scan" class="btn-cyber">Verify QR</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Real-time scan profile outputs -->
+        <div class="scanner-card glass-panel" id="scan-result-card">
+          <h3>👤 Participant Information</h3>
+          
+          <div class="scan-empty-state" id="scan-empty-view">
+            <span class="empty-icon">🎫</span>
+            <p>Scan a participant pass to verify their registration state and check attendance.</p>
+          </div>
+
+          <div class="scan-profile-details" id="scan-profile-view">
+            <div class="scan-profile-avatar">👨‍💻</div>
+            <h4 id="scan-user-name">Developer Name</h4>
+            <p id="scan-user-email" class="scan-meta-email">email@college.edu</p>
+
+            <hr class="divider">
+
+            <div class="profile-details-list">
+              <div class="profile-detail-item">
+                <span class="label">Register Number:</span>
+                <span id="scan-user-reg" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Department:</span>
+                <span id="scan-user-dept" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Study Year:</span>
+                <span id="scan-user-year" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Participation:</span>
+                <span id="scan-user-type" class="value">-</span>
+              </div>
+              <div class="profile-detail-item" id="scan-team-row">
+                <span class="label">Team Name:</span>
+                <span id="scan-team-name" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Registration Status:</span>
+                <span id="scan-user-status" class="status-badge" style="font-size:0.75rem;padding:2px 8px;">Approved</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Attendance Status:</span>
+                <span id="scan-attendance-status" class="status-badge" style="font-size:0.75rem;padding:2px 8px;">Absent</span>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <button type="button" id="btn-mark-present" class="btn-cyber btn-cyber-purple checkin-btn" disabled>Mark Participant Present</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/attendance.js"></script>
+</body>
+</html>

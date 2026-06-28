@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entry Pass | BUILDATHON '26</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .qr-pass-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      gap: 32px;
+    }
+
+    /* Ticket styling */
+    .ticket-badge {
+      width: 100%;
+      max-width: 380px;
+      background: #0c0e1a;
+      border: 2px solid var(--color-cyan);
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 0 25px var(--color-cyan-glow);
+      overflow: hidden;
+    }
+
+    .ticket-badge::before, .ticket-badge::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: var(--bg-primary);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      border: 1px solid var(--border-glass);
+    }
+    .ticket-badge::before { left: -16px; border-right-color: var(--color-cyan); }
+    .ticket-badge::after { right: -16px; border-left-color: var(--color-cyan); }
+
+    .ticket-header {
+      border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .ticket-event-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .ticket-event-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .ticket-qr-container {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 24px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .ticket-qr-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .ticket-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ticket-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .ticket-detail-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding-bottom: 6px;
+    }
+
+    .ticket-detail-row .label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .ticket-detail-row .val {
+      font-weight: 600;
+    }
+
+    .ticket-footer-hash {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Print styles */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .ticket-badge, .ticket-badge * {
+        visibility: visible;
+      }
+      .ticket-badge {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid #000 !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .ticket-badge::before, .ticket-badge::after {
+        background: #fff !important;
+        border: 1px solid #000 !important;
+      }
+      .ticket-detail-row {
+        border-bottom-color: #eee !important;
+      }
+      .ticket-name, .ticket-detail-row .val {
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass-panel">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-neon">BUILD</span>ATHON <span class="logo-version">'26</span>
+      </a>
+      <div class="nav-actions">
+        <a href="dashboard.html" class="nav-admin-link">&larr; Return to Dashboard</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="qr-pass-wrapper">
+    
+    <!-- Entry Pass Ticket -->
+    <div class="ticket-badge" id="pass-ticket">
+      <div class="ticket-header">
+        <div class="ticket-event-name"><span class="logo-neon">BUILD</span>ATHON</div>
+        <div class="ticket-event-sub">OFFICIAL ENTRY PASS</div>
+      </div>
+      
+      <!-- QR Image Container -->
+      <div class="ticket-qr-container">
+        <img src="" id="pass-qr-image" class="ticket-qr-img" alt="Entry Pass QR Code">
+      </div>
+
+      <!-- Info Details -->
+      <div class="ticket-info">
+        <div class="ticket-name" id="pass-user-name">Developer Name</div>
+        
+        <div class="ticket-detail-row">
+          <span class="label">Register Number</span>
+          <span class="val" id="pass-user-reg">-</span>
+        </div>
+        <div class="ticket-detail-row">
+          <span class="label">Department</span>
+          <span class="val" id="pass-user-dept">-</span>
+        </div>
+        <div class="ticket-detail-row">
+          <span class="label">Study Year</span>
+          <span class="val" id="pass-user-year">-</span>
+        </div>
+        <div class="ticket-detail-row">
+          <span class="label">Participation</span>
+          <span class="val" id="pass-user-type">-</span>
+        </div>
+        <div class="ticket-detail-row" id="pass-team-row">
+          <span class="label">Team Name</span>
+          <span class="val" id="pass-team-name">-</span>
+        </div>
+      </div>
+
+      <div class="ticket-footer-hash">
+        TOKEN ID: <span id="pass-token-id" class="text-neon-cyan">-</span>
+      </div>
+    </div>
+
+    <!-- Actions buttons -->
+    <div class="hero-buttons">
+      <button id="btn-print" class="btn-cyber btn-cyber-purple">Print Ticket</button>
+      <button id="btn-download" class="btn-cyber">Download Ticket</button>
+    </div>
+
+  </div>
+
+  <script type="module" src="js/qr.js"></script>
+</body>
+</html>

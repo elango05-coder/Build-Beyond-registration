@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | BUILDATHON '26</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Admin Credentials Login Box (Overlay / Conditional View) -->
+  <div class="admin-login-wrapper" id="admin-login-card">
+    <div class="admin-login-container glass-panel">
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+      <h2 class="admin-login-title">ADMIN <span class="text-neon-pink">LOGIN</span></h2>
+      <p class="admin-login-subtitle">Provide administrator authentication credentials</p>
+      
+      <form id="admin-login-form" novalidate>
+        <div class="form-group">
+          <label for="admin-email">Admin Email</label>
+          <input type="email" id="admin-email" class="form-control" placeholder="admin@mycollege.edu" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-password">Password</label>
+          <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" id="btn-admin-login" class="btn-cyber btn-cyber-pink login-btn">Authenticate Console</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Dashboard Interface (Hidden by default, displayed if authenticated) -->
+  <div class="admin-dashboard-layout" id="admin-dashboard-view">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar glass-panel">
+      <div class="sidebar-logo">
+        <span class="logo-neon-pink">ADMIN</span>PORTAL
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" id="menu-dash">🖥️ Console Overview</button>
+        <button class="nav-item" id="menu-registrations">📝 Registrations</button>
+        <a href="attendance.html" class="nav-item link-item">🎯 Attendance Scanner</a>
+        <button class="nav-item logout" id="admin-logout-btn">🚪 Logout Session</button>
+      </nav>
+    </aside>
+
+    <!-- Main Board -->
+    <div class="admin-main">
+      
+      <!-- Top navbar -->
+      <header class="admin-header glass-panel">
+        <h3>System Console Dashboard</h3>
+        <div class="admin-profile-badge">
+          <span>Active Session: Admin</span>
+        </div>
+      </header>
+
+      <div class="admin-content-container">
+        
+        <!-- Metrics stats row -->
+        <div class="stats-row">
+          <div class="stat-card glass-panel count-total">
+            <span class="stat-label">Total Applications</span>
+            <span class="stat-number" id="stat-total">0</span>
+          </div>
+          <div class="stat-card glass-panel count-pending">
+            <span class="stat-label">Pending Reviews</span>
+            <span class="stat-number text-neon-amber" id="stat-pending">0</span>
+          </div>
+          <div class="stat-card glass-panel count-approved">
+            <span class="stat-label">Approved Passes</span>
+            <span class="stat-number text-neon-green" id="stat-approved">0</span>
+          </div>
+          <div class="stat-card glass-panel count-rejected">
+            <span class="stat-label">Rejected Entries</span>
+            <span class="stat-number text-neon-pink" id="stat-rejected">0</span>
+          </div>
+          <div class="stat-card glass-panel count-present">
+            <span class="stat-label">Checked-In Venue</span>
+            <span class="stat-number text-neon-cyan" id="stat-present">0</span>
+          </div>
+        </div>
+
+        <!-- Filters & Search block -->
+        <div class="control-bar glass-panel">
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="All">All Applicants</button>
+            <button class="filter-tab" data-filter="Pending">Pending</button>
+            <button class="filter-tab" data-filter="Approved">Approved</button>
+            <button class="filter-tab" data-filter="Rejected">Rejected</button>
+          </div>
+          <div class="search-box">
+            <input type="text" id="admin-search-input" placeholder="Search name, email, register#...">
+            <button type="button" id="btn-admin-search" class="btn-cyber btn-search">Search</button>
+          </div>
+        </div>
+
+        <!-- Registrants Table -->
+        <div class="table-container glass-panel">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Register Number & Email</th>
+                <th>Dept & Yr</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Action Controls</th>
+              </tr>
+            </thead>
+            <tbody id="registrants-list-rows">
+              <tr>
+                <td colspan="6" class="text-center">Loading registrant profiles...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Custom Glass Modal for Student Profile Review -->
+  <div class="custom-modal" id="review-modal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h3>🔍 Review Applicant Profile</h3>
+        <button class="modal-close" data-close>&times;</button>
+      </div>
+      <div class="modal-body" id="modal-profile-details">
+        <!-- Loaded via JS -->
+      </div>
+      <div class="modal-footer" id="modal-profile-actions">
+        <!-- Loaded via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

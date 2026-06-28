@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | BUILDATHON '26</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass-panel">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-neon">BUILD</span>ATHON <span class="logo-version">'26</span>
+      </a>
+      <div class="nav-actions">
+        <button id="logout-btn" class="nav-admin-link" style="background:transparent;border:none;cursor:pointer;">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-container">
+      
+      <!-- Top banner -->
+      <header class="db-header glass-panel">
+        <div class="db-welcome">
+          <h2>Welcome, <span id="user-display-name" class="text-neon-cyan">Developer</span>!</h2>
+          <p>Buildathon Registration Portal Participant Dashboard</p>
+        </div>
+        <div class="db-meta-badge">
+          <span>Role: Participant</span>
+        </div>
+      </header>
+
+      <!-- Main Layout Grid -->
+      <div class="db-grid">
+        
+        <!-- Left: Status & Milestone Progress Card -->
+        <main class="db-main-content">
+          
+          <!-- Registration Status Card -->
+          <div class="db-card glass-panel" id="card-status">
+            <div class="card-header">
+              <h3>📋 Registration Status</h3>
+              <span id="badge-reg-status" class="status-badge status-pending">Pending</span>
+            </div>
+            
+            <p class="status-note-text" id="status-instructions">Your application is currently pending admin review. We will evaluate your social handles and register number shortly.</p>
+
+            <!-- Milestones Tracker Progress Bar -->
+            <div class="milestones-tracker">
+              <h4>Hackathon Journey Progress</h4>
+              <div class="progress-track-wrapper">
+                <div class="progress-bar-line" id="progress-fill"></div>
+                <div class="progress-nodes">
+                  <div class="node active" data-step="1">
+                    <span class="node-icon">👤</span>
+                    <span class="node-label">Signed In</span>
+                  </div>
+                  <div class="node" data-step="2" id="node-registered">
+                    <span class="node-icon">📝</span>
+                    <span class="node-label">Registered</span>
+                  </div>
+                  <div class="node" data-step="3" id="node-approved">
+                    <span class="node-icon">🎫</span>
+                    <span class="node-label">Approved</span>
+                  </div>
+                  <div class="node" data-step="4" id="node-present">
+                    <span class="node-icon">🏁</span>
+                    <span class="node-label">Present</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Get Pass Button Box -->
+            <div class="pass-access-box" id="qr-access-section">
+              <p>🎉 Congratulations! Your registration is approved. Retrieve your secure entry pass containing the check-in QR Code.</p>
+              <a href="qr-pass.html" class="btn-cyber btn-cyber-purple">View Entry Pass</a>
+            </div>
+          </div>
+
+          <!-- Teammates Card Details -->
+          <div class="db-card glass-panel" id="card-team-info">
+            <h3>👥 Team details</h3>
+            <div class="team-meta-info">
+              <p>Team Name: <strong id="team-name" class="text-neon-cyan">-</strong></p>
+              <p>Join Code: <strong id="team-code" class="text-neon-purple">-</strong></p>
+            </div>
+            <div class="members-table-container">
+              <table class="db-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Dept & Year</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody id="team-members-rows">
+                  <tr>
+                    <td colspan="4" class="text-center">No teammates associated.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+        </main>
+
+        <!-- Right: Profile Info Panel -->
+        <aside class="db-sidebar">
+          <div class="db-card glass-panel profile-sidebar-card">
+            <div class="profile-avatar">👨‍💻</div>
+            <h3 id="profile-name">User Profile</h3>
+            <p id="profile-email" class="profile-meta-email">email@college.edu</p>
+            
+            <hr class="divider">
+            
+            <div class="profile-details-list">
+              <div class="profile-detail-item">
+                <span class="label">Register Number:</span>
+                <span id="profile-reg-number" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Department:</span>
+                <span id="profile-dept" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Study Year:</span>
+                <span id="profile-year" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Phone:</span>
+                <span id="profile-phone" class="value">-</span>
+              </div>
+              <div class="profile-detail-item">
+                <span class="label">Gender:</span>
+                <span id="profile-gender" class="value">-</span>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="profile-social-links">
+              <h4>Social Profiles:</h4>
+              <a href="#" id="link-github" target="_blank" class="social-btn github">GitHub</a>
+              <a href="#" id="link-linkedin" target="_blank" class="social-btn linkedin">LinkedIn</a>
+              <a href="#" id="link-portfolio" target="_blank" class="social-btn portfolio">Portfolio</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

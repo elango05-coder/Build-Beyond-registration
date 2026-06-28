@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buildathon Registration | BUILDATHON '26</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass-panel">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-neon">BUILD</span>ATHON <span class="logo-version">'26</span>
+      </a>
+      <div class="nav-actions">
+        <button id="logout-btn" class="nav-admin-link" style="background:transparent;border:none;cursor:pointer;">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="register-wrapper">
+    <div class="register-container glass-panel">
+      <h2 class="register-title">EVENT <span class="text-neon-purple">REGISTRATION</span></h2>
+      <p class="register-subtitle">Complete your profile and registration details below</p>
+
+      <form id="registration-form" novalidate>
+        
+        <!-- Section 1: Basic Information -->
+        <fieldset class="form-section">
+          <legend>1. Profile Information</legend>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reg-name">Full Name</label>
+              <input type="text" id="reg-name" class="form-control" readonly>
+            </div>
+            
+            <div class="form-group">
+              <label for="reg-email">College Email</label>
+              <input type="email" id="reg-email" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-phone">Phone Number <span class="required">*</span></label>
+              <input type="text" id="reg-phone" class="form-control" placeholder="e.g. +919876543210" required>
+              <span class="error-msg" id="err-phone"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-number">Register Number <span class="required">*</span></label>
+              <input type="text" id="reg-number" class="form-control" placeholder="e.g. 2023CS0104" required>
+              <span class="error-msg" id="err-number"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-dept">Department <span class="required">*</span></label>
+              <input type="text" id="reg-dept" class="form-control" placeholder="e.g. Computer Science" required>
+              <span class="error-msg" id="err-dept"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-year">Year of Study <span class="required">*</span></label>
+              <select id="reg-year" class="form-control" required>
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+                <option value="5">5th Year</option>
+              </select>
+              <span class="error-msg" id="err-year"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-gender">Gender <span class="required">*</span></label>
+              <select id="reg-gender" class="form-control" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="error-msg" id="err-gender"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 2: Portfolio & Code Profiles -->
+        <fieldset class="form-section">
+          <legend>2. Social Profiles</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reg-github">GitHub Profile URL <span class="required">*</span></label>
+              <input type="url" id="reg-github" class="form-control" placeholder="https://github.com/username" required>
+              <span class="error-msg" id="err-github"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-linkedin">LinkedIn Profile URL <span class="required">*</span></label>
+              <input type="url" id="reg-linkedin" class="form-control" placeholder="https://linkedin.com/in/username" required>
+              <span class="error-msg" id="err-linkedin"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-portfolio">Portfolio / Personal Website <span class="required">*</span></label>
+              <input type="url" id="reg-portfolio" class="form-control" placeholder="https://username.github.io" required>
+              <span class="error-msg" id="err-portfolio"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Section 3: Participation Settings -->
+        <fieldset class="form-section">
+          <legend>3. Participation details</legend>
+          
+          <div class="form-group">
+            <label>Participation Type <span class="required">*</span></label>
+            <div class="type-toggle-container">
+              <label class="toggle-card glass-panel active">
+                <input type="radio" name="participationType" value="Individual" checked>
+                <span class="toggle-icon">👤</span>
+                <span class="toggle-label">Individual</span>
+              </label>
+              <label class="toggle-card glass-panel">
+                <input type="radio" name="participationType" value="Team">
+                <span class="toggle-icon">👥</span>
+                <span class="toggle-label">Team (Max 2)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Collapsible Team Actions Panel -->
+          <div class="team-panel glass-panel" id="team-form-section">
+            <h3 class="team-panel-title">👥 Team Management</h3>
+            <p class="team-panel-subtitle">Create a new team or join an existing team</p>
+            
+            <div class="team-actions-tabs">
+              <button type="button" class="team-tab-btn active" id="tab-create">Create Team</button>
+              <button type="button" class="team-tab-btn" id="tab-join">Join Team</button>
+            </div>
+
+            <!-- Create Card -->
+            <div class="team-action-card active" id="card-create">
+              <div class="form-group">
+                <label for="team-name-input">Team Name</label>
+                <input type="text" id="team-name-input" class="form-control" placeholder="Enter team name">
+              </div>
+              <button type="button" id="btn-create-team" class="btn-cyber btn-cyber-purple">Create Team & Get Code</button>
+            </div>
+
+            <!-- Join Card -->
+            <div class="team-action-card" id="card-join">
+              <div class="form-group">
+                <label for="team-code-input">Teammate's Join Code</label>
+                <input type="text" id="team-code-input" class="form-control" placeholder="e.g. XXXXXX">
+              </div>
+              <button type="button" id="btn-join-team" class="btn-cyber">Join Team</button>
+            </div>
+
+            <!-- Team status details -->
+            <div class="team-status-display" id="team-status-box">
+              <h4 id="display-team-name">Linked Team: None</h4>
+              <p>Join Code: <strong id="display-join-code" class="text-neon-cyan">-</strong></p>
+              <div class="teammate-list">
+                <h5>Members (Max 2):</h5>
+                <ul id="display-members-list">
+                  <li>No members linked yet.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="btn-submit-registration" class="btn-cyber btn-submit">Submit Registration</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>
